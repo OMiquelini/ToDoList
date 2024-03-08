@@ -21,11 +21,14 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Todo t1 = new Todo("Estudar", "Estudar Spring Boot 2 e Spring Cloud", false);
+        Todo t1 = new Todo("Estudar SB", "Estudar Spring Boot 3 e Spring Cloud", false);
 
         todoRepository.saveAll(Arrays.asList(t1));
 
-        System.out.println("TestConfig.run()");
+        //update
+        t1.setCompleted(true);
+        todoRepository.save(t1);
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.miquelini.todolist.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,8 +18,16 @@ public class Todo implements Serializable {
     private String title;
     private String description;
     private boolean completed;
+    private LocalDate dueDate;
     
     public Todo() {
+    }
+
+    public Todo(String title, String description,LocalDate dueDate, boolean completed) {
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
+        this.dueDate = dueDate;
     }
 
     public Todo(String title, String description, boolean completed) {
@@ -88,6 +97,18 @@ public class Todo implements Serializable {
     public String toString() {
         return "Todo [id=" + id + ", title=" + title + ", description=" + description + ", completed=" + completed
                 + "]";
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     
